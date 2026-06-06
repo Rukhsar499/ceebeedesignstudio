@@ -22,7 +22,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-6 md:px-12 py-4 flex items-center justify-between ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-6 md:px-12 py-2 flex items-center justify-between ${
         isScrolled
           ? 'bg-gradient-to-r from-[#4a1c28] via-[#321019] to-[#d4bca3] shadow-lg backdrop-blur-sm'
           : 'bg-transparent'
@@ -30,15 +30,15 @@ export default function Navbar() {
     >
       {/* Left Side: Logo */}
       <div 
-        className="bg-white/90 p-2 rounded shadow-sm max-w-[120px] md:max-w-[140px] transition-transform duration-300 hover:scale-105"
+        className="p-2 rounded shadow-sm max-w-[120px] md:max-w-[140px] transition-transform duration-300 hover:scale-105"
         data-aos="fade-down"
         data-aos-duration="800"
       >
         <Image
-          src="/logo.jpg"
+          src="/assets/img/logo.png"
           alt="Company Logo"
-          width={140}
-          height={100}
+          width={100}
+          height={80}
           className="w-full h-auto object-contain"
         />
       </div>

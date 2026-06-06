@@ -11,7 +11,7 @@ export default function HeroBanner() {
         <div 
           className="w-full h-full bg-cover bg-center animate-subtle-zoom"
           style={{ 
-            backgroundImage: "url('/WhatsApp Image 2026-06-06 at 5.07.35 PM.jpeg')" 
+            backgroundImage: "url('/assets/img/7.jpg')", 
           }} 
         />
         <div className="absolute inset-0 bg-black/35 mix-blend-multiply" />
