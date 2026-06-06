@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import React, { useState } from 'react';
 
 interface ServiceItem {
@@ -38,11 +39,11 @@ export default function ServicesSection() {
   };
 
   return (
-    <section className="bg-[#fcf9f4] min-h-screen flex items-center justify-center p-4 md:p-12 lg:p-24 font-sans">
+    <section className="bg-[#fff] min-h-screen flex items-center justify-center p-4 md:p-12 lg:p-24 font-sans overflow-hidden">
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
         
-        {/* Left Column: Content & Accordion */}
-        <div className="flex flex-col justify-between h-full py-4 relative">
+        {/* Left Column: Content & Accordion (Scroll Reveal from Left) */}
+        <div className="flex flex-col justify-between h-full py-4 relative animate-[fade-in-up_1s_ease-out_forwards] motion-reduce:animate-none">
           <div>
             {/* Heading */}
             <h2 className="text-4xl md:text-5xl font-serif text-[#4a283d] mb-12 tracking-wide">
@@ -54,11 +55,17 @@ export default function ServicesSection() {
               {servicesData.map((service, index) => {
                 const isOpen = openIndex === index;
                 return (
-                  <div key={service.id} className="relative group">
+                  <div 
+                    key={service.id} 
+                    className="relative group transition-all duration-500"
+                    style={{ 
+                      animationDelay: `${index * 150}ms`,
+                    }}
+                  >
                     
                     {/* Active Timeline Indicator Pin */}
                     {isOpen && (
-                      <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-3 h-3 bg-[#702d47] rounded-full border border-[#fcf9f4]" />
+                      <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-3 h-3 bg-[#702d47] rounded-full border border-[#fcf9f4] animate-ping-once" />
                     )}
 
                     {/* Accordion Header Trigger */}
@@ -68,24 +75,22 @@ export default function ServicesSection() {
                       aria-expanded={isOpen}
                     >
                       <div className="flex items-baseline gap-4">
-                        <span className={`text-sm md:text-base font-medium tracking-wider ${isOpen ? 'text-[#702d47]' : 'text-[#a18a81]'}`}>
+                        <span className={`text-sm md:text-base font-medium tracking-wider transition-colors duration-300 ${isOpen ? 'text-[#702d47]' : 'text-[#a18a81]'}`}>
                           {service.id}
                         </span>
-                        <h3 className={`text-xl md:text-2xl font-medium tracking-wide transition-colors ${isOpen ? 'text-[#702d47]' : 'text-[#2e2a27] group-hover:text-[#702d47]'}`}>
+                        <h3 className={`text-xl md:text-2xl font-medium tracking-wide transition-colors duration-300 ${isOpen ? 'text-[#702d47]' : 'text-[#2e2a27] group-hover:text-[#702d47]'}`}>
                           {service.title}
                         </h3>
                       </div>
 
                       {/* Icon Indicator */}
-                      <span className="flex-shrink-0 ml-4">
+                      <span className="flex-shrink-0 ml-4 transition-transform duration-300">
                         {isOpen ? (
-                          // Minus Icon
-                          <div className="w-6 h-6 rounded-full bg-[#702d47] flex items-center justify-center text-white text-lg font-light">
+                          <div className="w-6 h-6 rounded-full bg-[#702d47] flex items-center justify-center text-white text-lg font-light rotate-180 transition-transform duration-300">
                             &minus;
                           </div>
                         ) : (
-                          // Plus Icon
-                          <div className="w-6 h-6 rounded-full border border-[#d4c3bd] flex items-center justify-center text-[#a18a81] text-lg font-light group-hover:border-[#702d47] group-hover:text-[#702d47] transition-colors">
+                          <div className="w-6 h-6 rounded-full border border-[#d4c3bd] flex items-center justify-center text-[#a18a81] text-lg font-light group-hover:border-[#702d47] group-hover:text-[#702d47] transition-colors duration-300">
                             &#43;
                           </div>
                         )}
@@ -99,15 +104,15 @@ export default function ServicesSection() {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <div className="pl-9 pr-4 pb-4">
+                        <div className="pl-9 pr-4 pb-4 transform transition-transform duration-300 translate-y-0">
                           <p className="text-[#615854] text-sm md:text-base leading-relaxed max-w-md mb-4">
                             {service.description}
                           </p>
                           <a
                             href="#"
-                            className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-[#702d47] hover:underline"
+                            className="inline-flex items-center text-xs font-semibold tracking-widest uppercase text-[#702d47] hover:underline group/link"
                           >
-                            Know More <span className="ml-1 text-sm">&rarr;</span>
+                            Know More <span className="ml-1 text-sm transition-transform group-hover/link:translate-x-1">&rarr;</span>
                           </a>
                         </div>
                       </div>
@@ -118,22 +123,20 @@ export default function ServicesSection() {
             </div>
           </div>
 
-          {/* Bottom Vector Line-Art (Optional Placeholder Illustration) */}
+          {/* Bottom Vector Line-Art */}
           <div className="hidden lg:block opacity-20 mt-12 pt-8 border-t border-dashed border-[#d4c3bd]">
             <svg className="w-full h-16 text-[#615854]" fill="none" viewBox="0 0 400 60" stroke="currentColor" strokeWidth="1">
-              {/* Simplified minimal couch/lamp outline placeholder matching the layout aesthetic */}
               <path d="M20,50 L380,50 M60,50 L60,20 Q60,10 70,10 L80,10 M200,50 L200,40 L220,40 L220,50 M120,50 C120,35 180,35 180,50" />
             </svg>
           </div>
         </div>
 
-        {/* Right Column: Hero Showcase Image */}
-        <div className="w-full h-[400px] md:h-[550px] lg:h-[650px] relative overflow-hidden shadow-xl rounded-sm">
-          {/* Using HTML img for standalone drop-in snippet; swap with next/image in production */}
+        {/* Right Column: Hero Showcase Image (Scroll Reveal from Right/Scale) */}
+        <div className="w-full h-[400px] md:h-[550px] lg:h-[650px] relative overflow-hidden shadow-xl rounded-sm animate-[fade-in-left_1.2s_ease-out_forwards] motion-reduce:animate-none">
           <img
-            src="/images/interior-showcase.jpg" 
+            src="/public/assets/img/interior.jpeg" 
             alt="Warm elegant home entrance design"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
             loading="lazy"
           />
         </div>
