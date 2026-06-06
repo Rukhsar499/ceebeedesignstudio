@@ -91,7 +91,7 @@ export default function Footer() {
           <div
             data-aos="fade-up"
             data-aos-delay="200"
-            className="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10"
+            className=" border-white/10"
           >
             <h3 className="text-3xl font-light mb-6">
               Bangalore
@@ -113,7 +113,7 @@ export default function Footer() {
               </div>
 
               <div className="flex gap-4">
-                <FaEnvelope />
+                <FaEnvelope size={20} color="white"/>
                 <p>chitralekha@ceebeedesignstudio.com</p>
               </div>
             </div>
@@ -123,7 +123,7 @@ export default function Footer() {
           <div
             data-aos="fade-up"
             data-aos-delay="300"
-            className="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10"
+            className=" border-white/10"
           >
             <h3 className="text-3xl font-light mb-6">
               Kolkata
@@ -144,7 +144,7 @@ export default function Footer() {
               </div>
 
               <div className="flex gap-4">
-                <FaEnvelope />
+                <FaEnvelope size={20} color="white"/>
                 <p>chitralekha@ceebeedesignstudio.com</p>
               </div>
             </div>
