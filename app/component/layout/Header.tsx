@@ -22,14 +22,13 @@ export default function Navbar() {
 
   return (
     <nav
-      className={` fixed top-0 left-0 w-full z-50 transition-all duration-500 px-6 md:px-12 py-2 flex items-center justify-between ${
-        isScrolled
+      className={` fixed top-0 left-0 w-full z-50 transition-all duration-500 px-6 md:px-12 py-0 flex items-center justify-between ${isScrolled
           ? 'bg-gradient-to-r from-[#4a1c28] via-[#321019] to-[#d4bca3] shadow-lg backdrop-blur-sm'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       {/* Left Side: Logo */}
-      <div 
+      <div
         className="p-2 rounded shadow-sm max-w-[120px] md:max-w-[140px] transition-transform duration-300 hover:scale-105"
         data-aos="fade-down"
         data-aos-duration="800"
@@ -39,7 +38,8 @@ export default function Navbar() {
           alt="Company Logo"
           width={80}
           height={60}
-          className=""
+          className={`transition-all duration-300 ${isScrolled ? "pt-0" : "pt-6"
+            }`}
         />
       </div>
 
@@ -52,28 +52,24 @@ export default function Navbar() {
         data-aos-duration="800"
         data-aos-delay="100"
       >
-        <span 
-          className={`h-[2px] w-full bg-white rounded-full transition-all duration-300 origin-left ${
-            isMenuOpen ? 'rotate-45 translate-x-[4px]' : ''
-          }`} 
+        <span
+          className={`h-[2px] w-full bg-white rounded-full transition-all duration-300 origin-left ${isMenuOpen ? 'rotate-45 translate-x-[4px]' : ''
+            }`}
         />
-        <span 
-          className={`h-[2px] bg-white rounded-full transition-all duration-300 ${
-            isMenuOpen ? 'w-0 opacity-0' : 'w-3/4 self-end group-hover:w-full'
-          }`} 
+        <span
+          className={`h-[2px] bg-white rounded-full transition-all duration-300 ${isMenuOpen ? 'w-0 opacity-0' : 'w-3/4 self-end group-hover:w-full'
+            }`}
         />
-        <span 
-          className={`h-[2px] w-full bg-white rounded-full transition-all duration-300 origin-left ${
-            isMenuOpen ? '-rotate-45 translate-x-[4px]' : ''
-          }`} 
+        <span
+          className={`h-[2px] w-full bg-white rounded-full transition-all duration-300 origin-left ${isMenuOpen ? '-rotate-45 translate-x-[4px]' : ''
+            }`}
         />
       </button>
 
       {/* Mobile Slide-out Menu */}
       <div
-        className={`fixed inset-0 bg-[#4a1c28]/95 flex flex-col items-center justify-center gap-6 transition-all duration-500 ${
-          isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
+        className={`fixed inset-0 bg-[#4a1c28]/95 flex flex-col items-center justify-center gap-6 transition-all duration-500 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
       >
         <a href="#" className="text-2xl text-white hover:text-[#d4bca3] transition-colors" onClick={() => setIsMenuOpen(false)}>Home</a>
         <a href="#" className="text-2xl text-white hover:text-[#d4bca3] transition-colors" onClick={() => setIsMenuOpen(false)}>About</a>

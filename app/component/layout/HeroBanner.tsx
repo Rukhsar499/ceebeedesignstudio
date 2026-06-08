@@ -4,13 +4,13 @@ import React from 'react';
 
 export default function HeroBanner() {
     return (
-      <div className="px-2">
-        <div className="relative w-full min-h-screen overflow-hidden font-sans text-white bg-gradient-to-tr from-[#f5eae4]/90 via-[#fffbf9]/95 to-[#ebdcd5]/90">
+      <div className="w-full px-8 pt-4">
+        <div className="relative w-full min-h-screen overflow-hidden rounded-[20px] font-sans text-white ">
 
             {/* BACKGROUND BANNER IMAGE WITH ZOOM LOOP */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30 rounded-[40px]">
                 <div
-                    className="w-full h-full bg-cover bg-center animate-ken-burns"
+                    className="w-full h-full bg-cover bg-center animate-ken-burns rounded-2xl"
                     style={{
                         backgroundImage: "url('/assets/img/7.png')",
                     }}
@@ -19,7 +19,7 @@ export default function HeroBanner() {
             </div>
 
             {/* HERO CONTENT LAYER */}
-            <div className="relative z-10 max-w-7xl mx-auto min-h-screen px-6 md:px-12 flex flex-col justify-end pb-12 md:pb-24 lg:pb-32">
+            <div className="relative z-10 w-full  min-h-screen md:px-12 flex flex-col justify-end pb-12 md:pb-24 lg:pb-32 rounded-2xl">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
 
                     {/* Main Title Heading (Left Side) */}
