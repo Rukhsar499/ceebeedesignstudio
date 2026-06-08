@@ -4,10 +4,11 @@ import React from 'react';
 
 export default function HeroBanner() {
     return (
-        <div className="relative w-full min-h-screen overflow-hidden bg-[#1e1e1e9f] font-sans text-white">
+      <div className="px-2">
+        <div className="relative w-full min-h-screen overflow-hidden font-sans text-white bg-gradient-to-tr from-[#f5eae4]/90 via-[#fffbf9]/95 to-[#ebdcd5]/90">
 
             {/* BACKGROUND BANNER IMAGE WITH ZOOM LOOP */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30 rounded-[40px]">
                 <div
                     className="w-full h-full bg-cover bg-center animate-ken-burns"
                     style={{
@@ -55,7 +56,7 @@ export default function HeroBanner() {
 
                 </div>
             </div>
-
         </div>
+    </div>
     );
 }

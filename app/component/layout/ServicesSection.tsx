@@ -40,7 +40,7 @@ export default function ServicesSection() {
     };
 
     return (
-        <section className="bg-[#fff] min-h-screen flex items-center justify-center p-4 md:p-12 lg:p-24 font-sans overflow-hidden">
+        <section className="min-h-screen flex items-center justify-center p-4 md:p-12 lg:p-24 font-sans overflow-hidden bg-gradient-to-tr from-[#f5eae4]/90 via-[#fffbf9]/95 to-[#ebdcd5]/90">
             <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
                 {/* Left Column: Content & Accordion (Scroll Reveal from Left) */}

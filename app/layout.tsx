@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "./component/layout/Header";
-import "./component/layout/Footer";
 import Header from "./component/layout/Header";
 import Footer from "./component/layout/Footer";
 import { giarek, poppins } from "./fonts";
@@ -28,8 +26,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${giarek.variable} ${poppins.variable}`}>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        suppressHydrationWarning
+        className={`${giarek.variable} ${poppins.variable} ${geistSans.variable} ${geistMono.variable}`}
+      >
         <Header />
 
         <main>{children}</main>
