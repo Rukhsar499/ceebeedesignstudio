@@ -39,7 +39,7 @@ export default function WhyCeebee() {
       <div 
         className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat opacity-15 mix-blend-multiply pointer-events-none"
         style={{ 
-          backgroundImage: `url('/your-background-image.jpg')` 
+          backgroundImage: `url('/assets/img/bg-why.png')` 
         }} 
       />
 
@@ -102,13 +102,7 @@ export default function WhyCeebee() {
           data-aos="zoom-in-up"
           className="w-full sm:w-auto text-center sm:text-right pb-4"
         >
-          <a 
-            href="#projects" 
-            className="text-3xl md:text-4xl font-serif text-[#5a2a42] tracking-wide hover:opacity-80 transition-opacity inline-flex items-center gap-2 group"
-          >
-            Our Projects
-            <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-2">→</span>
-          </a>
+         
         </div>
         
       </div>
