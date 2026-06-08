@@ -17,6 +17,10 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+  :root {
+  --font-heading: var(--font-giarek);
+  --font-body: var(--font-poppins);
+}
 }
 
 body {
@@ -38,4 +42,13 @@ body {
 
 .animate-ken-burns {
   animation: kenBurns 20s ease-in-out infinite alternate;
+}
+.animate-text .char {
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  transform: translateY(0) !important;
+  transition:
+    opacity 0.8s ease,
+    filter 0.8s ease,
+    transform 0.8s ease;
 }

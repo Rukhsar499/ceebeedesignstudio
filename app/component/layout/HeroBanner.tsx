@@ -11,7 +11,7 @@ export default function HeroBanner() {
                 <div
                     className="w-full h-full bg-cover bg-center animate-ken-burns"
                     style={{
-                        backgroundImage: "url('/assets/img/7.jpg')",
+                        backgroundImage: "url('/assets/img/7.png')",
                     }}
                 />
                 <div className="absolute inset-0 bg-black/70 mix-blend-multiply" />

@@ -2,6 +2,7 @@
 import HeroBanner from "./component/layout/HeroBanner";
 import ServicesSection from "./component/layout/ServicesSection";
 import WhyCeebee from "./component/layout/WhyCeebee";
+import SplitText from "./component/layout/SplitText";
 
 
 
@@ -11,7 +12,7 @@ export default function Home() {
      <HeroBanner />
       <WhyCeebee />
      <ServicesSection />
-    
+    <SplitText text="Hello CeeBee" />
     </div>
   );
 }

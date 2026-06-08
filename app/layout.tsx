@@ -5,6 +5,7 @@ import "./component/layout/Header";
 import "./component/layout/Footer";
 import Header from "./component/layout/Header";
 import Footer from "./component/layout/Footer";
+import { giarek, poppins } from "./fonts";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${giarek.variable} ${poppins.variable}`}>
         <Header />
 
         <main>{children}</main>
