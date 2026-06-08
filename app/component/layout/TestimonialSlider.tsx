@@ -94,7 +94,7 @@ export default function TestimonialSlider() {
         </h2>
       </div>
 
-      
+      <div className="max-w-[1400px] mx-auto px-4">
         <Swiper
           modules={[
             Navigation,
@@ -179,7 +179,8 @@ export default function TestimonialSlider() {
             );
           })}
         </Swiper>
-      
+      </div>
+
       <style jsx global>{`
         .swiper {
           overflow: visible;
