@@ -126,7 +126,7 @@ export default function LuxuryProjectSlider() {
 
             {/* Title HUD Placed Elegantly Below the Timeline Ring System */}
             <div className="absolute inset-x-0 bottom-[5%] flex flex-col items-center z-20 text-center select-none pointer-events-none">
-              <h2 className="text-6xl md:text-8xl lg:text-[10rem] font-serif text-[#1a1a1a] tracking-tight font-light transition-all duration-700 leading-none">
+              <h2 className="text-6xl md:text-8xl lg:text-[4rem] font-serif text-[#1a1a1a] tracking-tight font-light transition-all duration-700 leading-none">
                 {slide.title}
               </h2>
               {slide.subtitle && (
