@@ -3,13 +3,12 @@
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, EffectFade, Pagination } from 'swiper/modules';
+import { Mousewheel, EffectFade } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 
 // Import mandatory native Swiper core style modules
 import 'swiper/css';
 import 'swiper/css/effect-fade';
-import 'swiper/css/pagination';
 
 interface ProjectSlide {
   id: string;
@@ -25,14 +24,14 @@ const projectSlides: ProjectSlide[] = [
     index: 1,
     title: "India & Art (Dakshin)",
     subtitle: "Traditional Heritage Curation",
-    imageSrc: "/assets/img/1.png" // Referenced file name from mockup mapping
+    imageSrc: "/assets/img/1.png"
   },
   {
     id: "project-2",
     index: 2,
     title: "India & Art (East Edit)",
     subtitle: "Bespoke Column Architecture",
-    imageSrc: "/assets/img/2.png" // Replicated slide contexts
+    imageSrc: "/assets/img/2.png"
   },
   {
     id: "project-3",
@@ -44,7 +43,7 @@ const projectSlides: ProjectSlide[] = [
   {
     id: "project-4",
     index: 4,
-    title: "English Country",
+    title: "Silent Room",
     subtitle: "Fine Textured Palettes",
     imageSrc: "/assets/img/4.png"
   },
@@ -61,11 +60,18 @@ const projectSlides: ProjectSlide[] = [
     title: "Soulful Storytelling",
     subtitle: "Final Curated Balance",
     imageSrc: "/assets/img/6.png"
+  },
+  {
+    id: "project-7",
+    index: 7,
+    title: "Minimal Elegance",
+    subtitle: "Modern Architectural Silence",
+    imageSrc: "/assets/img/7.png"
   }
 ];
 
 export default function LuxuryProjectSlider() {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [activeIndex, setActiveIndex] = useState<number>(3); // Set default to index 3 (Slide 4) to mirror reference mockup
   const swiperRef = useRef<SwiperType | null>(null);
 
   const handleSlideChange = (swiper: SwiperType) => {
@@ -79,20 +85,16 @@ export default function LuxuryProjectSlider() {
   };
 
   return (
-    
-    <section className="relative w-full h-screen overflow-hidden">
-       <h2 className="text-4xl md:text-5xl lg:text-5xl font-serif text-[#7d4b5d] tracking-wide text-center pt-4 mb-2">
-        Our Projects
-      </h2>
+    <section className="relative w-full h-screen overflow-hidden bg-[#fffbf9]">
       
       {/* Immersive Master Full-Bleed Slider Component */}
       <Swiper
-        modules={[Mousewheel, EffectFade, Pagination]}
+        modules={[Mousewheel, EffectFade]}
         effect={'fade'}
         speed={800}
-        // Critical UX Requirement Met:
+        initialSlide={3}
         mousewheel={{
-          releaseOnEdges: true, // Seamlessly releases mouse control to the page view only at slide 0 or slide.length
+          releaseOnEdges: true,
           sensitivity: 1,
         }}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -103,28 +105,32 @@ export default function LuxuryProjectSlider() {
           <SwiperSlide key={slide.id} className="relative w-full h-full">
             
             {/* Full Screen High-Definition Image Wrapper */}
-            <div className="absolute inset-0 w-full min-h-screen">
-              
+            <div className="absolute inset-0 w-full h-full">
               <Image
                 src={slide.imageSrc}
                 alt={slide.title}
                 fill
-                priority={slide.index === 1}
+                priority={slide.index === 4}
                 sizes="100vw"
                 className="object-cover transition-transform duration-1000 scale-100"
               />
-              {/* Premium Luxury Overlay Shadow Matrix matching the picture reference */}
               
+              {/* Premium Luxury Overlay: Custom specified blend matrix masking the bottom 30% */}
+              <div 
+                className="absolute inset-0 z-10 pointer-events-none mix-blend-normal"
+                style={{
+                  background: 'linear-gradient(to top, rgba(245, 234, 228, 0.90) 0%, rgba(255, 251, 249, 0.95) 18%, rgba(235, 220, 213, 0.90) 30%, rgba(255, 255, 255, 0) 65%)'
+                }}
+              />
             </div>
-            
 
-            {/* Title & Floating Copy HUD */}
-            <div className="absolute inset-0 flex flex-col justify-end items-center pb-44 px-6 z-20 text-center select-none">
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-black tracking-wide leading-tight drop-shadow-md max-w-4xl transition-all duration-700 transform translate-y-0 opacity-100">
+            {/* Title HUD Placed Elegantly Below the Timeline Ring System */}
+            <div className="absolute inset-x-0 bottom-[5%] flex flex-col items-center z-20 text-center select-none pointer-events-none">
+              <h2 className="text-6xl md:text-8xl lg:text-[10rem] font-serif text-[#1a1a1a] tracking-tight font-light transition-all duration-700 leading-none">
                 {slide.title}
               </h2>
               {slide.subtitle && (
-                <p className="text-black/60 font-mono text-xs md:text-sm tracking-widest mt-3 uppercase">
+                <p className="text-black/40 font-sans tracking-widest mt-5 uppercase text-[11px]">
                   {slide.subtitle}
                 </p>
               )}
@@ -134,69 +140,71 @@ export default function LuxuryProjectSlider() {
         ))}
       </Swiper>
 
-      {/* Senior Architectural Interactive Progress Timeline HUD Layout */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-full max-w-5xl px-4 z-30 hidden sm:block">
-        <div className="relative flex items-center justify-between">
+      {/* Interactive Senior Architectural Timeline HUD Layout */}
+      <div className="absolute bottom-[44%] left-0 right-0 w-full z-30 hidden sm:block">
+        <div className="relative w-full flex items-center justify-between px-16 lg:px-24">
           
-          {/* Connecting Axis Dotted Vector Track */}
-          <div className="absolute left-0 right-0 top-6 h-[1px] border-t border-dashed border-white/20 z-0" />
+          {/* Continuous Flat Axis Vector Tracking Line */}
+          <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1px] bg-black/15 z-0" />
           
-          {/* Active Progress Trailing Fill Tracker */}
-          <div 
-            className="absolute left-0 top-6 h-[1px] bg-white transition-all duration-500 ease-out z-0"
-            style={{ 
-              width: `${(activeIndex / (projectSlides.length - 1)) * 100}%` 
-            }}
-          />
-
-          {/* Interactive Navigation Nodes */}
+          {/* Interactive Project Progress Step Nodes */}
           {projectSlides.map((slide, idx) => {
             const isActive = activeIndex === idx;
-            const isPassed = activeIndex >= idx;
 
             return (
-              <button
+              <div
                 key={slide.id}
-                onClick={() => jumpToSlide(idx)}
-                className="flex flex-col items-center group relative z-10 cursor-pointer focus:outline-none"
+                className="relative flex items-center justify-center z-10"
                 style={{ width: `${100 / projectSlides.length}%` }}
               >
-                {/* Numeric Dial Ring */}
-                <div 
-                  className={`w-12 h-12 rounded-full border flex items-center justify-center font-serif text-sm transition-all duration-500 backdrop-blur-sm ${
-                    isActive 
-                      ? 'bg-white/20 border-white text-white scale-110 shadow-lg shadow-white/10' 
-                      : isPassed 
-                        ? 'bg-white text-[#5a2a42] border-white' 
-                        : 'bg-black/40 border-white/30 text-white/50 group-hover:border-white/70 group-hover:text-white'
-                  }`}
+                <button
+                  onClick={() => jumpToSlide(idx)}
+                  className="relative flex items-center justify-center focus:outline-none group transition-transform duration-300"
                 >
-                  {slide.index}
-                </div>
+                  {/* Concentric Layered Dial Rings matching image reference (Active Step Aura) */}
+                  {isActive && (
+                    <>
+                      <div className="absolute w-[100px] h-[100px] rounded-full border border-black/5 bg-black/[0.02] backdrop-blur-[2px] transition-all duration-500" />
+                      <div className="absolute w-[76px] h-[76px] rounded-full border border-black/10" />
+                      <div className="absolute w-[58px] h-[58px] rounded-full border border-black/20" />
+                    </>
+                  )}
 
-                {/* Micro Label (Matches image blueprint spacing structure) */}
-                <span 
-                  className={`text-[10px] md:text-xs font-serif mt-3 tracking-wide whitespace-nowrap transition-all duration-300 ${
-                    isActive ? 'text-white font-medium scale-105' : 'text-white/40 group-hover:text-white/80'
-                  }`}
-                >
-                  {slide.title}
-                </span>
-              </button>
+                  {/* Core Interactive Numeric Node Indicator */}
+                  <div 
+                    className={`w-11 h-11 rounded-full flex items-center justify-center font-serif text-xl transition-all duration-500 relative z-10 ${
+                      isActive 
+                        ? 'text-white bg-neutral-900 shadow-xl shadow-black/10 scale-105' 
+                        : 'text-black/60 hover:text-black hover:scale-105'
+                    }`}
+                  >
+                    {slide.index}
+                  </div>
+                </button>
+
+                {/* Micro Ambient Audio Waveform Visualizer Vector Layer */}
+                {isActive && (
+                  <div className="absolute left-[calc(50%+36px)] top-1/2 -translate-y-1/2 flex items-center opacity-65 z-20 pointer-events-none hidden lg:flex text-neutral-800">
+                    <svg width="135" height="24" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 12H12M16 12V8M16 12V16M22 12V4M22 12V20M28 12V6M28 12V18M34 12V10M34 12V14M40 12H52M56 12V5M56 12V19M62 12V2M62 12V22M68 12V7M68 12V17M74 12H90M94 12V9M94 12V15M100 12V3M100 12V21M106 12V7M106 12V17M112 12H118" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round"/>
+                    </svg>
+                  </div>
+                )}
+              </div>
             );
           })}
 
         </div>
       </div>
 
-      {/* Mobile-Only Micro-Pagination Strip */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 sm:hidden flex gap-2">
+      {/* Mobile-Only Clean Modular Navigation Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 sm:hidden flex gap-3 bg-white/40 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/20">
         {projectSlides.map((_, idx) => (
           <button
             key={idx}
             onClick={() => jumpToSlide(idx)}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              activeIndex === idx ? 'w-6 bg-white' : 'w-1.5 bg-white/30'
+            className={`h-1 rounded-full transition-all duration-300 ${
+              activeIndex === idx ? 'w-6 bg-neutral-900' : 'w-1.5 bg-neutral-900/25'
             }`}
           />
         ))}

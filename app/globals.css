@@ -51,3 +51,7 @@ h2{
     filter 0.8s ease,
     transform 0.8s ease;
 }
+.swiper {
+    overflow: visible;
+    padding-bottom: 0px !important;
+}
