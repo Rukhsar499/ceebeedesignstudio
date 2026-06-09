@@ -125,7 +125,7 @@ export default function LuxuryProjectSlider() {
             </div>
 
             {/* Title HUD Placed Elegantly Below the Timeline Ring System */}
-            <div className="absolute inset-x-0 bottom-[5%] flex flex-col items-center z-20 text-center select-none pointer-events-none">
+            <div className="absolute inset-x-0 bottom-[7%] flex flex-col items-center z-20 text-center select-none pointer-events-none">
               <h2 className="text-6xl md:text-8xl lg:text-[4rem] font-serif text-[#1a1a1a] tracking-tight font-light transition-all duration-700 leading-none">
                 {slide.title}
               </h2>
@@ -141,7 +141,7 @@ export default function LuxuryProjectSlider() {
       </Swiper>
 
       {/* Interactive Senior Architectural Timeline HUD Layout */}
-      <div className="absolute bottom-[44%] left-0 right-0 w-full z-30 hidden sm:block">
+      <div className="absolute bottom-[24%] left-0 right-0 w-full z-30 hidden sm:block">
         <div className="relative w-full flex items-center justify-between px-16 lg:px-24">
           
           {/* Continuous Flat Axis Vector Tracking Line */}
