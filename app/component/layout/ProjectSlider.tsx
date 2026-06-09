@@ -103,7 +103,8 @@ export default function LuxuryProjectSlider() {
           <SwiperSlide key={slide.id} className="relative w-full h-full">
             
             {/* Full Screen High-Definition Image Wrapper */}
-            <div className="absolute inset-0 w-full h-full">
+            <div className="absolute inset-0 w-full min-h-screen">
+              
               <Image
                 src={slide.imageSrc}
                 alt={slide.title}
@@ -113,16 +114,17 @@ export default function LuxuryProjectSlider() {
                 className="object-cover transition-transform duration-1000 scale-100"
               />
               {/* Premium Luxury Overlay Shadow Matrix matching the picture reference */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
+              
             </div>
+            
 
             {/* Title & Floating Copy HUD */}
             <div className="absolute inset-0 flex flex-col justify-end items-center pb-44 px-6 z-20 text-center select-none">
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-white tracking-wide leading-tight drop-shadow-md max-w-4xl transition-all duration-700 transform translate-y-0 opacity-100">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-black tracking-wide leading-tight drop-shadow-md max-w-4xl transition-all duration-700 transform translate-y-0 opacity-100">
                 {slide.title}
               </h2>
               {slide.subtitle && (
-                <p className="text-white/60 font-mono text-xs md:text-sm tracking-widest mt-3 uppercase">
+                <p className="text-black/60 font-mono text-xs md:text-sm tracking-widest mt-3 uppercase">
                   {slide.subtitle}
                 </p>
               )}
